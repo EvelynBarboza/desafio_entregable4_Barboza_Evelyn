@@ -1,0 +1,47 @@
+[
+    {
+      "id": 7,
+      "title": "Reiki USUI",
+      "description": "Terapia alternativa energetica",
+      "price": 800,
+      "thumbnail": "",
+      "code": "RR356",
+      "stock": 20
+    },
+    {
+      "id": 8,
+      "title": "Registros Akashicos",
+      "description": "Terapia para consultar los registros de tu alma",
+      "price": 1200,
+      "thumbnail": "",
+      "code": "RR357",
+      "stock": 20
+    },
+    {
+      "id": 9,
+      "title": "Masajes Relajantes",
+      "description": "Masoterapia con aceites",
+      "price": 700,
+      "thumbnail": "",
+      "code": "RRR358",
+      "stock": 20
+    },
+    {
+      "id": 10,
+      "title": "Masajes Descontracturantes",
+      "description": "Masoterapia descontracturante con aceites",
+      "price": 900,
+      "thumbnail": "",
+      "code": "RR3555",
+      "stock": 20
+    },
+    {
+      "id": 11,
+      "title": "Regresiones",
+      "description": "Regresion a la infancia o a vidas pasada por hipnosis",
+      "price": 1200,
+      "thumbnail": "",
+      "code": "RR9875",
+      "stock": 20
+    }
+  ]
