@@ -11,21 +11,33 @@ const productManager = new ProductManager('productos.json');
 const { dirName } = require('./utils.js');
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const server = http.createServer(app);
-const socketServer = socketIO(server);
+const socketServer = socketIO(server); //io
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine("handlebars", handlebars.engine());
+
+//handlebars
+//app.engine("handlebars", handlebars.engine());
+app.engine('handlebars', exphbs());
 app.set('views', path.join(dirName, 'views'));
 app.set('view engine', 'handlebars');
 
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/', viewsRouter);
+
+
+app.get('/views/layouts/realTimeProducts', (req, res) => {
+    res.render('realTimeProducts', { products })
+});
+
+io.on('connection', (socket) => {
+    console.log('Se conectò un nuevo cliente');
+});
 
 socketServer.on('connection', (socket) => {
     socket.on('addProduct', async (product) => {
@@ -51,7 +63,7 @@ socketServer.on('connection', (socket) => {
 });
 
 server.listen(PORT, () => {
-    console.log('El servidor está corriendo en el puerto ' + PORT);
+    console.log('Servidor escuchando en el puerto ${PORT}');
 });
 
 module.exports = { server, socketServer };

@@ -67,7 +67,7 @@ class CartManager {
 
             this.saveToFile();
         } else {
-            console.error('No se pudo agregar el producto al carrito.');
+            console.error('No se pudo agregar el producto al carrito');
         }
     }
 }
