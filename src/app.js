@@ -30,6 +30,9 @@ app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/', viewsRouter);
 
+app.get('/', (req, res) => {
+    res.render('home'); 
+  });
 
 app.get('/views/layouts/realTimeProducts', (req, res) => {
     res.render('realTimeProducts', { products })
@@ -38,6 +41,9 @@ app.get('/views/layouts/realTimeProducts', (req, res) => {
 io.on('connection', (socket) => {
     console.log('Se conectò un nuevo cliente');
 });
+socket.on('disconnect', () => {
+    console.log('Un cliente se ha desconectado');
+  });
 
 socketServer.on('connection', (socket) => {
     socket.on('addProduct', async (product) => {
